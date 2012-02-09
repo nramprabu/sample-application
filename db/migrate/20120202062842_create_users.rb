@@ -2,7 +2,10 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.string :name
-      t.has_attached_file :avatar
+      t.string :age
+      t.text :address
+      t.string :phoneno
+      t.string :email
       t.timestamps
     end
   end
