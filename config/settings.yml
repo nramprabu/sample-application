@@ -1,0 +1,19 @@
+development: &non_production_settings
+  site_url: http://localhost:3000
+  site_name: sample application
+  admin_email: nramprabu@gmail.com
+  
+test:
+  <<: *non_production_settings
+
+staging:
+  site_url: http://ramprabhu.heroku.com
+  site_name: sample application
+  admin_email: nramprabu@gmail.com
+
+  
+production:
+  site_url: http://ramprabhu.heroku.com
+  site_name: sample application
+  admin_email: nramprabu@gmail.com
+

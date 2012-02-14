@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,
+
+<p><%= link_to 'Activate your account',"#{APP_CONFIG['site_url']}/home/show/#{@user.id}" %></p>
+
+Thank you for registering!
