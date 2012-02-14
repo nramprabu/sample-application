@@ -26,4 +26,15 @@ ActiveAdmin.register User do
 		end	
 		f.buttons
 	end
+	
+	show do |ad|
+		attributes_table do
+			row :name
+			row :age
+			row :email
+			row :phoneno
+			row :address
+			row("Status") { status_tag (user.status ? "Done" : "Pending"), (user.status ? :ok : :error) }
+		end
+	end
 end

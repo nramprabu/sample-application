@@ -1,3 +1,5 @@
+APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/settings.yml")[RAILS_ENV]
+
 ActionMailer::Base.delivery_method = :smtp
 
 ActionMailer::Base.delivery_method = :smtp
@@ -9,3 +11,5 @@ ActionMailer::Base.smtp_settings = {
   :password             => 'nsramprabu38',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
+  
+  
