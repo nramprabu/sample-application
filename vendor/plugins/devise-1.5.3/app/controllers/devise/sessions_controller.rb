@@ -12,18 +12,7 @@ class Devise::SessionsController < ApplicationController
 
   # POST /resource/sign_in
   def create 
-    email=params[:admin_user][:email]
-    pwd=params[:admin_user][:password]
-    user=User.find_by_email(email)     
-    if ((email=="nramprabu@gmail.com" && pwd=="ramprabu38") || (!user.nil? && user.valid_password?(pwd)))      
-      if email=="nramprabu@gmail.com"
-      resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
-      else
-      resource = user 
-      end        
-    else
-      resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
-    end     
+    resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")    
     set_flash_message(:notice, :signed_in) if is_navigational_format?      
     sign_in(resource_name, resource)
     respond_with resource, :location => after_sign_in_path_for(resource)

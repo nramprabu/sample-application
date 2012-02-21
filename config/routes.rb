@@ -5,7 +5,21 @@ FileUpload::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   
+  resources :home
+  
   match 'home/show/:id'=>"home#show",:as=>:home_show
+  
+  match "chat" => "mains#chat", :as => :chat
+  
+  match "chatlogin" =>"mains#login"
+
+  resource :socky do
+    member do
+      post :subscribe
+      post :unsubscribe
+      post :message
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +70,7 @@ FileUpload::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "admin/dashboard#index"
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,4 +1,9 @@
 class HomeController < ApplicationController
+layout 'user'
+def index
+	
+end
+
 def show
 	user=User.find params[:id]
 	if user.present?
